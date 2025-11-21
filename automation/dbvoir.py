@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-dBVoir - seamless nicotine+ → beets → jellyfin
+dBVoir - seamless nicotine+ -> beets -> jellyfin
 monitors nicotine+ downloads, metadata through beets, jellyfin rescan
 """
 
@@ -242,7 +242,7 @@ def watch_directory():
 
 
 if __name__ == '__main__':
-    logger.info("dBVoir - Starting Nicotine+ → Beets → Jellyfin pipeline")
+    logger.info("dBVoir - Starting Nicotine+ -> Beets -> Jellyfin pipeline")
     logger.info(f"Monitoring: {CONFIG['nicotine_download_dir']}")
     logger.info(f"Target: C:\\media\\music\\library")
     watch_directory()
