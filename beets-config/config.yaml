@@ -1,0 +1,59 @@
+# beets config for jellyfin
+directory: C:/media/music/library  # jellyfin library path
+library: C:/media/music/library.db  # beets library db location
+
+import:
+    copy: no
+    move: yes
+    write: yes
+    autotag: yes
+    duplicate_action: skip  # auto skip dupes
+    incremental: yes
+    quiet_fallback: skip
+    timid: no
+    log: C:/media/music/beets-import.log
+
+paths:
+    # Artist/Album/TrackNumber - Title
+    default: $albumartist/$album%aunique{}/$track. $title
+    singleton: $albumartist/$album%aunique{}/$title
+    comp: Various Artists/$album%aunique{}/$track. $title
+
+plugins: fetchart embedart scrub lastgenre scrub replaygain
+threaded: yes
+
+# auto fetch album art
+fetchart:
+    auto: yes
+    cautious: yes
+    cover_names: cover folder album
+    sources: filesystem coverart itunes amazon albumart
+    store_source: yes
+
+# embed album art in files
+embedart:
+    auto: yes
+    ifempty: no
+    maxwidth: 1000
+    quality: 85
+
+# clean up tags
+scrub:
+    auto: yes
+
+match:
+    strong_rec_thresh: 0.04
+    medium_rec_thresh: 0.25
+    rec_gap_thresh: 0.25
+    rec_timeout: 30.0
+
+replaygain:
+    auto: yes
+    overwrite: no
+    backend: ffmpeg
+
+
+# jellyfin compatibility (file naming)
+asciify_paths: yes
+paths_sep_replace: _
+per_disc_numbering: yes

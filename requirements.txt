@@ -1,0 +1,8 @@
+beets
+watchdog
+requests
+python-dotenv
+
+# optional beets plugins
+langdetect # lyrics
+pylast # lastgenre plugin
